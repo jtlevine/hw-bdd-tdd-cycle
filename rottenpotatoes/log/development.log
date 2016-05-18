@@ -863,3 +863,108 @@ Started GET "/assets/jquery.self.js?body=1" for ::1 at 2015-07-28 12:40:07 -0700
 
 
 Started GET "/assets/jquery_ujs.self.js?body=1" for ::1 at 2015-07-28 12:40:07 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to AddDirectorToMovie (20160313225458)
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36m (0.8ms)[0m  [1mALTER TABLE "movies" ADD "director" varchar[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20160313225458"]]
+  [1m[36m (12.2ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.3ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (19.8ms)[0m  [1mCREATE TABLE "movies" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "rating" varchar(255), "description" text, "release_date" datetime, "created_at" datetime, "updated_at" datetime, "director" varchar) [0m
+  [1m[35m (10.1ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar NOT NULL) 
+  [1m[36m (0.2ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (19.1ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.3ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (9.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160313225458')
+  [1m[36m (9.8ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20111119180638')[0m
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.8ms)[0m  INSERT INTO "movies" ("title", "rating", "director", "release_date", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["title", "Star wars"], ["rating", "PG"], ["director", "George Lucas"], ["release_date", "1977-05-25 00:00:00.000000"], ["created_at", "2016-03-15 00:34:27.470212"], ["updated_at", "2016-03-15 00:34:27.470212"]]
+  [1m[36m (13.9ms)[0m  [1mcommit transaction[0m
+  [1m[36m (0.3ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.3ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to AddDirectorToMovie (20160313225458)
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.6ms)[0m  CREATE TEMPORARY TABLE "amovies" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "rating" varchar(255), "description" text, "release_date" datetime, "created_at" datetime, "updated_at" datetime, "director" varchar) 
+  [1m[36m (0.4ms)[0m  [1mSELECT * FROM "movies"[0m
+  [1m[35m (0.2ms)[0m  INSERT INTO "amovies" ("id","title","rating","description","release_date","created_at","updated_at","director") VALUES (1, 'Aladdin', 'G', NULL, '1992-11-25 00:00:00.000000', '2014-05-22 13:03:39.113784', '2014-05-22 13:03:39.113784', NULL)
+  [1m[36m (0.6ms)[0m  [1mINSERT INTO "amovies" ("id","title","rating","description","release_date","created_at","updated_at","director") VALUES (2, 'The Terminator', 'R', NULL, '1984-10-26 00:00:00.000000', '2014-05-22 13:03:39.145768', '2014-05-22 13:03:39.145768', NULL)[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "amovies" ("id","title","rating","description","release_date","created_at","updated_at","director") VALUES (3, 'When Harry Met Sally', 'R', NULL, '1989-07-21 00:00:00.000000', '2014-05-22 13:03:39.159054', '2014-05-22 13:03:39.159054', NULL)
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "amovies" ("id","title","rating","description","release_date","created_at","updated_at","director") VALUES (4, 'The Help', 'PG-13', NULL, '2011-08-10 00:00:00.000000', '2014-05-22 13:03:39.171809', '2014-05-22 13:03:39.171809', NULL)[0m
+  [1m[35m (0.2ms)[0m  INSERT INTO "amovies" ("id","title","rating","description","release_date","created_at","updated_at","director") VALUES (5, 'Chocolat', 'PG-13', NULL, '2001-01-05 00:00:00.000000', '2014-05-22 13:03:39.185803', '2014-05-22 13:03:39.185803', NULL)
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "amovies" ("id","title","rating","description","release_date","created_at","updated_at","director") VALUES (6, 'Amelie', 'R', NULL, '2001-04-25 00:00:00.000000', '2014-05-22 13:03:39.200228', '2014-05-22 13:03:39.200228', NULL)[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "amovies" ("id","title","rating","description","release_date","created_at","updated_at","director") VALUES (7, '2001: A Space Odyssey', 'G', NULL, '1968-04-06 00:00:00.000000', '2014-05-22 13:03:39.213982', '2014-05-22 13:03:39.213982', NULL)
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "amovies" ("id","title","rating","description","release_date","created_at","updated_at","director") VALUES (8, 'The Incredibles', 'PG', NULL, '2004-11-05 00:00:00.000000', '2014-05-22 13:03:39.226711', '2014-05-22 13:03:39.226711', NULL)[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "amovies" ("id","title","rating","description","release_date","created_at","updated_at","director") VALUES (9, 'Raiders of the Lost Ark', 'PG', NULL, '1981-06-12 00:00:00.000000', '2014-05-22 13:03:39.241098', '2014-05-22 13:03:39.241098', NULL)
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "amovies" ("id","title","rating","description","release_date","created_at","updated_at","director") VALUES (10, 'Chicken Run', 'G', NULL, '2000-06-21 00:00:00.000000', '2014-05-22 13:03:39.255526', '2014-05-22 13:03:39.255526', NULL)[0m
+  [1m[35m (0.2ms)[0m  INSERT INTO "amovies" ("id","title","rating","description","release_date","created_at","updated_at","director") VALUES (11, 'Aladdin', 'G', NULL, '1992-11-25 00:00:00.000000', '2015-07-23 20:56:17.941173', '2015-07-23 20:56:17.941173', NULL)
+  [1m[36m (0.2ms)[0m  [1mINSERT INTO "amovies" ("id","title","rating","description","release_date","created_at","updated_at","director") VALUES (12, 'The Terminator', 'R', NULL, '1984-10-26 00:00:00.000000', '2015-07-23 20:56:17.950814', '2015-07-23 20:56:17.950814', NULL)[0m
+  [1m[35m (0.2ms)[0m  INSERT INTO "amovies" ("id","title","rating","description","release_date","created_at","updated_at","director") VALUES (13, 'When Harry Met Sally', 'R', NULL, '1989-07-21 00:00:00.000000', '2015-07-23 20:56:17.954874', '2015-07-23 20:56:17.954874', NULL)
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "amovies" ("id","title","rating","description","release_date","created_at","updated_at","director") VALUES (14, 'The Help', 'PG-13', NULL, '2011-08-10 00:00:00.000000', '2015-07-23 20:56:17.959412', '2015-07-23 20:56:17.959412', NULL)[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "amovies" ("id","title","rating","description","release_date","created_at","updated_at","director") VALUES (15, 'Chocolat', 'PG-13', NULL, '2001-01-05 00:00:00.000000', '2015-07-23 20:56:17.962009', '2015-07-23 20:56:17.962009', NULL)
+  [1m[36m (0.2ms)[0m  [1mINSERT INTO "amovies" ("id","title","rating","description","release_date","created_at","updated_at","director") VALUES (16, 'Amelie', 'R', NULL, '2001-04-25 00:00:00.000000', '2015-07-23 20:56:17.964574', '2015-07-23 20:56:17.964574', NULL)[0m
+  [1m[35m (0.2ms)[0m  INSERT INTO "amovies" ("id","title","rating","description","release_date","created_at","updated_at","director") VALUES (17, '2001: A Space Odyssey', 'G', NULL, '1968-04-06 00:00:00.000000', '2015-07-23 20:56:17.967046', '2015-07-23 20:56:17.967046', NULL)
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "amovies" ("id","title","rating","description","release_date","created_at","updated_at","director") VALUES (18, 'The Incredibles', 'PG', NULL, '2004-11-05 00:00:00.000000', '2015-07-23 20:56:17.969312', '2015-07-23 20:56:17.969312', NULL)[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "amovies" ("id","title","rating","description","release_date","created_at","updated_at","director") VALUES (19, 'Raiders of the Lost Ark', 'PG', NULL, '1981-06-12 00:00:00.000000', '2015-07-23 20:56:17.971769', '2015-07-23 20:56:17.971769', NULL)
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "amovies" ("id","title","rating","description","release_date","created_at","updated_at","director") VALUES (20, 'Chicken Run', 'G', NULL, '2000-06-21 00:00:00.000000', '2015-07-23 20:56:17.973961', '2015-07-23 20:56:17.973961', NULL)[0m
+  [1m[35m (0.2ms)[0m  INSERT INTO "amovies" ("id","title","rating","description","release_date","created_at","updated_at","director") VALUES (21, 'Star wars', 'PG', NULL, '1977-05-25 00:00:00.000000', '2016-03-15 00:34:27.470212', '2016-03-15 00:34:27.470212', 'George Lucas')
+  [1m[36m (1.8ms)[0m  [1mDROP TABLE "movies"[0m
+  [1m[35m (0.3ms)[0m  CREATE TABLE "movies" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "rating" varchar(255), "description" text, "release_date" datetime, "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (0.3ms)[0m  [1mSELECT * FROM "amovies"[0m
+  [1m[35m (0.2ms)[0m  INSERT INTO "movies" ("id","title","rating","description","release_date","created_at","updated_at") VALUES (1, 'Aladdin', 'G', NULL, '1992-11-25 00:00:00.000000', '2014-05-22 13:03:39.113784', '2014-05-22 13:03:39.113784')
+  [1m[36m (0.2ms)[0m  [1mINSERT INTO "movies" ("id","title","rating","description","release_date","created_at","updated_at") VALUES (2, 'The Terminator', 'R', NULL, '1984-10-26 00:00:00.000000', '2014-05-22 13:03:39.145768', '2014-05-22 13:03:39.145768')[0m
+  [1m[35m (0.2ms)[0m  INSERT INTO "movies" ("id","title","rating","description","release_date","created_at","updated_at") VALUES (3, 'When Harry Met Sally', 'R', NULL, '1989-07-21 00:00:00.000000', '2014-05-22 13:03:39.159054', '2014-05-22 13:03:39.159054')
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "movies" ("id","title","rating","description","release_date","created_at","updated_at") VALUES (4, 'The Help', 'PG-13', NULL, '2011-08-10 00:00:00.000000', '2014-05-22 13:03:39.171809', '2014-05-22 13:03:39.171809')[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "movies" ("id","title","rating","description","release_date","created_at","updated_at") VALUES (5, 'Chocolat', 'PG-13', NULL, '2001-01-05 00:00:00.000000', '2014-05-22 13:03:39.185803', '2014-05-22 13:03:39.185803')
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "movies" ("id","title","rating","description","release_date","created_at","updated_at") VALUES (6, 'Amelie', 'R', NULL, '2001-04-25 00:00:00.000000', '2014-05-22 13:03:39.200228', '2014-05-22 13:03:39.200228')[0m
+  [1m[35m (0.2ms)[0m  INSERT INTO "movies" ("id","title","rating","description","release_date","created_at","updated_at") VALUES (7, '2001: A Space Odyssey', 'G', NULL, '1968-04-06 00:00:00.000000', '2014-05-22 13:03:39.213982', '2014-05-22 13:03:39.213982')
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "movies" ("id","title","rating","description","release_date","created_at","updated_at") VALUES (8, 'The Incredibles', 'PG', NULL, '2004-11-05 00:00:00.000000', '2014-05-22 13:03:39.226711', '2014-05-22 13:03:39.226711')[0m
+  [1m[35m (2.5ms)[0m  INSERT INTO "movies" ("id","title","rating","description","release_date","created_at","updated_at") VALUES (9, 'Raiders of the Lost Ark', 'PG', NULL, '1981-06-12 00:00:00.000000', '2014-05-22 13:03:39.241098', '2014-05-22 13:03:39.241098')
+  [1m[36m (0.2ms)[0m  [1mINSERT INTO "movies" ("id","title","rating","description","release_date","created_at","updated_at") VALUES (10, 'Chicken Run', 'G', NULL, '2000-06-21 00:00:00.000000', '2014-05-22 13:03:39.255526', '2014-05-22 13:03:39.255526')[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "movies" ("id","title","rating","description","release_date","created_at","updated_at") VALUES (11, 'Aladdin', 'G', NULL, '1992-11-25 00:00:00.000000', '2015-07-23 20:56:17.941173', '2015-07-23 20:56:17.941173')
+  [1m[36m (0.2ms)[0m  [1mINSERT INTO "movies" ("id","title","rating","description","release_date","created_at","updated_at") VALUES (12, 'The Terminator', 'R', NULL, '1984-10-26 00:00:00.000000', '2015-07-23 20:56:17.950814', '2015-07-23 20:56:17.950814')[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "movies" ("id","title","rating","description","release_date","created_at","updated_at") VALUES (13, 'When Harry Met Sally', 'R', NULL, '1989-07-21 00:00:00.000000', '2015-07-23 20:56:17.954874', '2015-07-23 20:56:17.954874')
+  [1m[36m (0.2ms)[0m  [1mINSERT INTO "movies" ("id","title","rating","description","release_date","created_at","updated_at") VALUES (14, 'The Help', 'PG-13', NULL, '2011-08-10 00:00:00.000000', '2015-07-23 20:56:17.959412', '2015-07-23 20:56:17.959412')[0m
+  [1m[35m (0.2ms)[0m  INSERT INTO "movies" ("id","title","rating","description","release_date","created_at","updated_at") VALUES (15, 'Chocolat', 'PG-13', NULL, '2001-01-05 00:00:00.000000', '2015-07-23 20:56:17.962009', '2015-07-23 20:56:17.962009')
+  [1m[36m (0.2ms)[0m  [1mINSERT INTO "movies" ("id","title","rating","description","release_date","created_at","updated_at") VALUES (16, 'Amelie', 'R', NULL, '2001-04-25 00:00:00.000000', '2015-07-23 20:56:17.964574', '2015-07-23 20:56:17.964574')[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "movies" ("id","title","rating","description","release_date","created_at","updated_at") VALUES (17, '2001: A Space Odyssey', 'G', NULL, '1968-04-06 00:00:00.000000', '2015-07-23 20:56:17.967046', '2015-07-23 20:56:17.967046')
+  [1m[36m (0.2ms)[0m  [1mINSERT INTO "movies" ("id","title","rating","description","release_date","created_at","updated_at") VALUES (18, 'The Incredibles', 'PG', NULL, '2004-11-05 00:00:00.000000', '2015-07-23 20:56:17.969312', '2015-07-23 20:56:17.969312')[0m
+  [1m[35m (0.2ms)[0m  INSERT INTO "movies" ("id","title","rating","description","release_date","created_at","updated_at") VALUES (19, 'Raiders of the Lost Ark', 'PG', NULL, '1981-06-12 00:00:00.000000', '2015-07-23 20:56:17.971769', '2015-07-23 20:56:17.971769')
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "movies" ("id","title","rating","description","release_date","created_at","updated_at") VALUES (20, 'Chicken Run', 'G', NULL, '2000-06-21 00:00:00.000000', '2015-07-23 20:56:17.973961', '2015-07-23 20:56:17.973961')[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "movies" ("id","title","rating","description","release_date","created_at","updated_at") VALUES (21, 'Star wars', 'PG', NULL, '1977-05-25 00:00:00.000000', '2016-03-15 00:34:27.470212', '2016-03-15 00:34:27.470212')
+  [1m[36m (0.7ms)[0m  [1mDROP TABLE "amovies"[0m
+  [1m[35mSQL (0.6ms)[0m  DELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = ?  [["version", "20160313225458"]]
+  [1m[36m (22.8ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.3ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.5ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[36m (16.1ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL) [0m
+  [1m[35m (0.2ms)[0m  select sqlite_version(*)
+  [1m[36m (16.5ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.4ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to CreateMovies (20111119180638)
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+DEPRECATION WARNING: `#timestamp` was called without specifying an option for `null`. In Rails 5, this behavior will change to `null: false`. You should manually specify `null: true` to prevent the behavior of your existing migrations from changing. (called from block in up at /home/ubuntu/workspace/hw-bdd-tdd-cycle/rottenpotatoes/db/migrate/20111119180638_create_movies.rb:10)
+  [1m[35m (0.9ms)[0m  CREATE TABLE "movies" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "rating" varchar, "description" text, "release_date" datetime, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20111119180638"]]
+  [1m[35m (11.4ms)[0m  commit transaction
+Migrating to AddDirectorToMovie (20160313225458)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.8ms)[0m  ALTER TABLE "movies" ADD "director" varchar
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20160313225458"]]
+  [1m[35m (10.5ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36m (0.5ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.3ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.4ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[36m (20.0ms)[0m  [1mCREATE TABLE "movies" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "rating" varchar, "description" text, "release_date" datetime, "created_at" datetime, "updated_at" datetime, "director" varchar) [0m
+  [1m[35m (12.4ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar NOT NULL) 
+  [1m[36m (0.2ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (13.5ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.6ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (11.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160313225458')
+  [1m[36m (12.2ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20111119180638')[0m
